@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Property
+
+#register catalogs
+admin.site.register(Property)
