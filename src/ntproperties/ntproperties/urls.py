@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from ntproperties.listing.views import home_view
+from listing.views import home_view
+from listing.views import property_create_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_view),
+    path('createproperty', property_create_view)
 ]
