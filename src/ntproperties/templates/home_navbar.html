@@ -6,6 +6,14 @@
 </head>
 <body>
     <h1>NT Properties</h1>
-    <p>it starts here</p>
+    <p>it starts here!</p>
+    {%for p in prop%}
+    <br>
+  {%for k, v in p.items %}
+    The key: {{ k }} ==> has a value: {{ v }}
+    <br>
+  {%endfor%}
+-----------------
+{%endfor%}
 </body>
 </html>
