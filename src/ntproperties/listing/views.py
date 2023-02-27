@@ -10,6 +10,7 @@ def property_create_view(request):
     form = PropertyForm(request.POST or None)
     if form.is_valid():
         form.save()
+        form = PropertyForm()
 
     context = {
         'form': form
