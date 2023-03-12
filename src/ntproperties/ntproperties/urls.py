@@ -16,10 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from listing.views import home_view
-from listing.views import property_create_view
+from listing.views import property_create_view, block_create_view, company_create_view, companycard_create_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_view),
-    path('createproperty', property_create_view)
+    path('createproperty', property_create_view),
+    path('createblock', block_create_view),
+    path('createcompany', company_create_view),
+    path('createcompanycard', companycard_create_view),
 ]
