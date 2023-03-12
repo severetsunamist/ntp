@@ -1,17 +1,23 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Property # , Block, Company,CompanyCard
+from .models import Property, Block, Company, CompanyCard
 from .forms import PropertyForm, CompanyForm, BlockForm, CompanyCardForm
 
+
 def home_view(request):
-    prop = Property.objects.all().values()
+    prop = CompanyCard.objects.all().values()
+
+    # prop = prop.get(id="1")
+
     context = {
         'prop': prop
     }
-    return render(request, "home_navbar.html", context)
+
+    return render(request, "listing.html", context)
+
 
 def property_create_view(request):
-    form = PropertyForm(request.POST or None) #  or None)
+    form = PropertyForm(request.POST or None)  # or None)
     if form.is_valid():
         form.save()
         form = PropertyForm()
@@ -21,8 +27,9 @@ def property_create_view(request):
     }
     return render(request, 'property_create.html', context)
 
+
 def block_create_view(request):
-    form = BlockForm(request.POST or None) #  or None)
+    form = BlockForm(request.POST or None)  # or None)
     if form.is_valid():
         form.save()
         form = BlockForm()
@@ -32,8 +39,9 @@ def block_create_view(request):
     }
     return render(request, 'block_create.html', context)
 
+
 def company_create_view(request):
-    form = CompanyForm(request.POST or None) #  or None)
+    form = CompanyForm(request.POST or None)  # or None)
     if form.is_valid():
         form.save()
         form = CompanyForm()
@@ -43,8 +51,9 @@ def company_create_view(request):
     }
     return render(request, 'company_create.html', context)
 
+
 def companycard_create_view(request):
-    form = CompanyCardForm(request.POST or None) #  or None)
+    form = CompanyCardForm(request.POST or None)  # or None)
     if form.is_valid():
         form.save()
         form = CompanyCardForm()
@@ -53,4 +62,3 @@ def companycard_create_view(request):
         'form': form
     }
     return render(request, 'companycard_create.html', context)
-

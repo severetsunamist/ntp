@@ -2,7 +2,6 @@ from django.db import models
 from django.utils.timezone import now as now
 from .models_dropdowns import dropdown
 
-
 class CompanyCard(models.Model):
     legal_name = models.CharField(max_length=96)
     ogrn = models.CharField(max_length=15)

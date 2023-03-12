@@ -50,7 +50,6 @@ class PropertyForm(forms.ModelForm):
             'gla',
             # 'owner'
             # 'img',
-
         ]
         labels = {
             'property_type': label('Тип объекта:'),
