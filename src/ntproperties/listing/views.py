@@ -5,22 +5,27 @@ from .forms import PropertyForm, CompanyForm, BlockForm, CompanyCardForm
 
 
 def home_view(request):
-    prop = CompanyCard.objects.all().values()
-
+    prop = CompanyCard.objects.all()
     # prop = prop.get(id="1")
+    column_names = ['id', 'Юр. лицо','ОГРН','ИНН','КПП','Юр. адрес', 'Почтовый адрес', 'Руководитель',
+           'Банк', 'Рассчетный счёт','Корреспондентский счёт', 'БИК', 'Телефон','e-mail']
 
     context = {
-        'prop': prop
+        'prop': prop,
+        'cn': column_names
     }
 
     return render(request, "listing.html", context)
 
 
 def property_create_view(request):
-    form = PropertyForm(request.POST or None)  # or None)
-    if form.is_valid():
-        form.save()
-        form = PropertyForm()
+    form = PropertyForm()
+    if request.method == 'POST':
+        form = PropertyForm(request.POST)  # or None)
+        if form.is_valid():
+            form.save()
+            form = PropertyForm()
+
 
     context = {
         'form': form
@@ -29,10 +34,12 @@ def property_create_view(request):
 
 
 def block_create_view(request):
-    form = BlockForm(request.POST or None)  # or None)
-    if form.is_valid():
-        form.save()
-        form = BlockForm()
+    form = BlockForm()
+    if request.method == 'POST':
+        form = BlockForm(request.POST)  # or None)
+        if form.is_valid():
+            form.save()
+            form = BlockForm()
 
     context = {
         'form': form
@@ -41,10 +48,12 @@ def block_create_view(request):
 
 
 def company_create_view(request):
-    form = CompanyForm(request.POST or None)  # or None)
-    if form.is_valid():
-        form.save()
-        form = CompanyForm()
+    form = CompanyForm()
+    if request.method == 'POST':
+        form = CompanyForm(request.POST)  # or None)
+        if form.is_valid():
+            form.save()
+            form = CompanyForm()
 
     context = {
         'form': form
@@ -53,10 +62,12 @@ def company_create_view(request):
 
 
 def companycard_create_view(request):
-    form = CompanyCardForm(request.POST or None)  # or None)
-    if form.is_valid():
-        form.save()
-        form = CompanyCardForm()
+    form = CompanyCardForm()
+    if request.method == 'POST':
+        form = CompanyCardForm(request.POST)  # or None)
+        if form.is_valid():
+            form.save()
+            form = CompanyCardForm()
 
     context = {
         'form': form

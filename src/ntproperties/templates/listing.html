@@ -2,6 +2,94 @@
 {% block content %}
 
         <h1>Listing</h1>
-        {{ prop }}
+        <div class="col-3"></div>
+        <div class="container col-6">
+                <div class="card">
+                        <div class="card-body">
+                                <table class="table table-hover">
+                                        {% for i in cn %}
+                                        <tr>
+                                                <td><b>{{ i }}</b></td>
+                                                <td>{{ prop.0 }}</td>
+                                        </tr>
+                                        {% endfor %}
+<!--                                        <tr>-->
+<!--                                                <td><b>{{ arr.1 }}</b><td>-->
+<!--                                                <td>{{ prop.legal_name }}</td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                                <td><b>ОГРН</b></td>-->
+<!--                                                <td>{{ prop.ogrn }}</td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                                <td><b>ИНН</b></td>-->
+<!--                                                <td>{{ prop.inn }}</td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                                <td><b>КПП</b></td>-->
+<!--                                                <td>{{ prop.kpp }}</td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                                <td><b>Юр. адрес</b></td>-->
+<!--                                                <td>{{ prop.legal_address }}</td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                                <td><b>Почтовый адрес</b></td>-->
+<!--                                                <td>{{ prop.post_address }}</td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                                <td><b>Руководитель</b></td>-->
+<!--                                                <td>{{ prop.ceo }}</td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                                <td><b>Банк</b></td>-->
+<!--                                                <td>{{ prop.bank_name }}</td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                                <td><b>Рассчетный счёт</b></td>-->
+<!--                                                <td>{{ prop.p_account }}</td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                                <td><b>Корреспондентский счёт</b></td>-->
+<!--                                                <td>{{ prop.c_account }}</td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                                <td><b>БИК</b></td>-->
+<!--                                                <td>{{ prop.bik }}</td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                                <td><b>Телефон</b></td>-->
+<!--                                                <td>{{ prop.phone }}</td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                                <td><b>e-mail</b></td>-->
+<!--                                                <td>{{ prop.email }}</td>-->
+<!--                                        </tr>-->
+                                </table>
+
+<!--                                <ul style="list-style: none;">-->
+<!--                                        <li><b>ID:</b> {{ prop.id }}</li>-->
+<!--                                        <li><b>{{ prop.legal_name }}</b></li>-->
+<!--                                        <li><b>ОГРН: </b>{{ prop.ogrn }}</li>-->
+<!--                                        <li><b>ИНН: </b>{{ prop.inn }}</li>-->
+<!--                                        <li><b>КПП: </b>{{ prop.kpp }}</li>-->
+<!--                                        <li><b>Юр. адрес: </b>{{ prop.legal_address }}</li>-->
+<!--                                        <li><b>Физ. адрес: </b>{{ prop.post_address }}</li>-->
+<!--                                        <li><b>Руководитель: </b>{{ prop.ceo }}</li>-->
+<!--                                        <li><b>Банк: </b>{{ prop.bank_name }}</li>-->
+<!--                                        <li><b>Рассчетный счёт: </b>{{ prop.p_account }}</li>-->
+<!--                                        <li><b>Корреспондентский счёт: </b>{{ prop.c_account }}</li>-->
+<!--                                        <li><b>БИК: </b>{{ prop.bik }}</li>-->
+<!--                                        <li><b>Телефон: </b>{{ prop.phone }}</li>-->
+<!--                                        <li><b>Эл. адрес: </b> {{ prop.email }}</li>-->
+<!--                                </ul>-->
+
+                        </div>
+
+                </div>
+        </div>
+
+
+
 
 {% endblock %}
