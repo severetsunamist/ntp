@@ -1,0 +1,52 @@
+{% extends "home_navbar.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+            {% for i in prop %}
+            <div class="card card-body" style="margin:5px;">
+                <div class="row">
+                    <img class="col-5 rounded" src="static/images/dbmediaroot/lp_example.jpg">
+                    <div class="col-4">
+                        <h5 class="card-title text-center" style="margin-top:5px;">{{ i.property_type }} {{ i.name }}</h5>
+                        <h6 class="card-text">{% if i.highway and i.region %}
+                                {{ i.region }}, {{ i.highway }}
+                            {% elif i.highway %}
+                                {{ i.highway }}
+                            {% elif i.region %}
+                                {{ i.region }}
+                            {% endif %}
+                        </h6>
+                        <table class="table table-hover">
+                            <tr>
+                                <td><b>Введен в эксплуатацию:</b> {{ i.built_date }}</td>
+                            </tr>
+                            <tr>
+                                <td><b>GBA:</b> {{ i.gba }} кв. м</td>
+                            </tr>
+                            <tr>
+                                <td><b>GLA:</b> {{ i.gla }} кв. м</td>
+                            </tr>
+                            <tr>
+                                <td><b>Собственник:</b> -Unknown-</td>
+                            </tr>
+                            <tr>
+                                <td><b>Дата актуализации:</b> {{ i.update }}</td>
+                            </tr>
+                        </table>
+
+
+
+                </div>
+                    <div class="col-3 d-grid gap-2">
+                        <button class="btn btn-warning">Карта</button>
+                        <button class="btn btn-warning">Подробно</button>
+                        <button class="btn btn-warning">Редактировать</button>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+
+</div>
+{% endblock %}

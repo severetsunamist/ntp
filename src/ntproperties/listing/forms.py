@@ -46,7 +46,7 @@ class PropertyForm(forms.ModelForm):
             'property_type': label('Тип объекта:'),
             'name': label('Название:'),
             'region': label('Регион:'),
-            'highway': label('Магистраль:'),
+            'highway': label('Шоссе:'),
             'location': label('Координаты:'),
             'address': label('Адрес:'),
             'gba': label('Общая площадь:'),
@@ -118,8 +118,9 @@ class CompanyForm(forms.ModelForm):
         labels = {
             "brand_name": label('Название бренда'),
             'landlord': label('Собственник'),
-            'tenant': label('Клиент'),
+            'client': label('Клиент'),
             'agent': label('Агент'),
+            'logist': label('Логистический оператор'),
             'logo': label('Лого'),
             'industry': label('Направление бизнеса'),
         }

@@ -16,9 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from listing.views import home_view
-from listing.views import property_create_view, block_create_view, company_create_view, companycard_create_view
+# from listing.views import property_view, property_create_view, block_create_view, company_create_view, companycard_create_view
 from django.conf import settings
 from django.conf.urls.static import static
+from listing.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,6 +28,8 @@ urlpatterns = [
     path('createblock', block_create_view),
     path('createcompany', company_create_view),
     path('createcompanycard', companycard_create_view),
+    path('property', property_view),
+    path('property/<int:pk>', property_card_view),
 ]
 
-# urlpatterns += static(settings.MIDEA_URL, document.settings.MEDIA_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

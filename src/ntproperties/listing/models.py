@@ -23,8 +23,9 @@ class CompanyCard(models.Model):
 class Company(models.Model):
     brand_name = models.CharField(max_length=48, default="NT Properties")
     landlord = models.BooleanField(default=True)
-    tenant = models.BooleanField(default=False)
+    client = models.BooleanField(default=False)
     agent = models.BooleanField(default=False)
+    logist = models.BooleanField(default=False)
     logo = models.ImageField(null=True, blank=True)
     industry = models.CharField(max_length=64, blank=True)
 
@@ -96,7 +97,7 @@ class Block(models.Model):
     tech_comment = models.TextField(max_length=256, blank=True)
 
     photo = models.ImageField(null=True, blank=True)
-    plan = models.ImageField(null=True, blank=True)
+    plan = models.ImageField(null=True, blank=True) # , upload_to='dbmediaroot/block/plan'
 
     update = models.DateField(default=now)  # НАСТРОИТЬ ДАТУ ОБНОВЛЕНИЯ
 

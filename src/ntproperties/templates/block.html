@@ -1,0 +1,115 @@
+{% extends "home_navbar.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="card card-body">
+        <div class="row">
+            <img class="col-3 rounded float-right" src="static/images/dbmediaroot/Screenshot_from_2023-03-12_20-49-15.png">
+
+            <div class="col-3">
+                <h5>{{prop.0.property_type}} {{prop.0.name}}</h5>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th style="color: orange;">АРЕНДА</th>
+                            <th>Площадь, кв. м</th>
+                            <th>Условия, руб./кв. м/год</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Общая</th>
+                            <td>2</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <th>Склад</th>
+                            <td>2</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <th>Офис</th>
+                            <td>2</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <th>Мезонин</th>
+                            <td>2</td>
+                            <td>3</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-3">
+                <h5>.</h5>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Площадь, кв. м</th>
+                            <th>Условия, руб./кв. м/год</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Общая</th>
+                            <td>{{prop.0.gba}}</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <th>Склад</th>
+                            <td>2</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <th>Офис</th>
+                            <td>2</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <th>Мезонин</th>
+                            <td>2</td>
+                            <td>3</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-3">
+                <button class="btn btn-primary">Подробно</button>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Площадь</th>
+                            <th>Условия</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Общая</th>
+                            <td>{{prop.0.gba}}</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <th>Склад</th>
+                            <td>2</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <th>Офис</th>
+                            <td>2</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <th>Мезонин</th>
+                            <td>2</td>
+                            <td>3</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

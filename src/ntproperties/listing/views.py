@@ -73,3 +73,16 @@ def companycard_create_view(request):
         'form': form
     }
     return render(request, 'companycard_create.html', context)
+
+def property_view(request):
+    prop = Property.objects.all()
+    context = {
+        'prop': prop
+    }
+    return render(request, 'property.html', context)
+def property_card_view(request, pk):
+    prop = Property.objects.get(id=pk)
+    context = {
+        'prop': prop
+    }
+    return render(request, 'property_card.html', context)
