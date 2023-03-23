@@ -26,7 +26,6 @@ def property_create_view(request):
             form.save()
             form = PropertyForm()
 
-
     context = {
         'form': form
     }
@@ -52,6 +51,7 @@ def company_create_view(request):
     if request.method == 'POST':
         form = CompanyForm(request.POST)  # or None)
         if form.is_valid():
+
             form.save()
             form = CompanyForm()
 

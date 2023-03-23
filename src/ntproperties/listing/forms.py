@@ -22,19 +22,35 @@ class CompanyCardForm(forms.ModelForm):
         # ]
         fields = '__all__'
         labels = {
-            "legal_name": label('Название'),
-            'ogrn': label('ОГРН'),
-            'inn': label('ИНН'),
-            'kpp': label('КПП'),
-            'legal_address': label('Юридический адрес'),
-            'post_address': label('Почтовый адрес'),
-            'ceo': label('Руководитель'),
-            'bank_name': label('Банк'),
-            'p_account': label('Рассчётный счёт'),
-            'c_account': label('Корреспондентский счёт'),
-            'bik': label('БИК'),
-            'phone': label('Телефон'),
-            'email': label('Электронный адрес'),
+            "legal_name": '',
+            'ogrn': '',
+            'inn': '',
+            'kpp': '',
+            'legal_address': '',
+            'post_address': '',
+            'ceo': '',
+            'bank_name': '',
+            'p_account': '',
+            'c_account': '',
+            'bik': '',
+            'phone': '',
+            'email': '',
+        }
+
+        widgets = {
+            "legal_name": forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Название юр. лица'}),
+            'ogrn': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'ОГРН'}),
+            'inn': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'ИНН'}),
+            'kpp': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'КПП'}),
+            'legal_address': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Юридический адрес'}),
+            'post_address': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Почтовый адрес'}),
+            'ceo': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Руководитель'}),
+            'bank_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Банк'}),
+            'p_account': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Расчётный счёт'}),
+            'c_account': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Корреспондентский счёт'}),
+            'bik': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'БИК'}),
+            'phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Телефон'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'e-mail'}),
         }
 
 
@@ -43,21 +59,33 @@ class PropertyForm(forms.ModelForm):
         model = Property
         fields = '__all__'
         labels = {
-            'property_type': label('Тип объекта:'),
-            'name': label('Название:'),
-            'region': label('Регион:'),
-            'highway': label('Шоссе:'),
-            'location': label('Координаты:'),
-            'address': label('Адрес:'),
-            'gba': label('Общая площадь:'),
-            'gla': label('Арендопригодная площадь:'),
-            'built_date': label('Дата ввода в эксплуатацию:'),
-            'photo': label('Фото:'),
-            'plan': label('План:'),
-            'update': label('Дата обновления:')
-
+            'property_type': '',
+            'name': '',
+            'region': '',
+            'highway': '',
+            'location': '',
+            'address': '',
+            'gba': '',
+            'gla': '',
+            'built_date': '',
+            'photo': '',
+            'plan': '',
+            'update': '',
             # 'owner': label('Собственник:')
-
+        }
+        widgets = {
+            'property_type': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Тип объекта'}),
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Название'}),
+            'region': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Регион'}),
+            'highway': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Шоссе'}),
+            'location': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Координаты'}),
+            'address': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Адрес'}),
+            'gba': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Общая площадь'}),
+            'gla': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Арендопригодная площадь'}),
+            'built_date': forms.DateInput(attrs={'class': 'form-control'}),
+            'photo': forms.FileInput(attrs={'class': 'form-control', 'placeholder': 'Фото'}),
+            'plan': forms.FileInput(attrs={'class': 'form-control', 'placeholder': 'План'}),
+            'update': forms.DateInput(attrs={'class': 'form-control'}),
         }
 
 class BlockForm(forms.ModelForm):

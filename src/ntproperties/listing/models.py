@@ -26,7 +26,7 @@ class Company(models.Model):
     client = models.BooleanField(default=False)
     agent = models.BooleanField(default=False)
     logist = models.BooleanField(default=False)
-    logo = models.ImageField(null=True, blank=True)
+    logo = models.ImageField(null=True, blank=True, upload_to="company/logo")
     industry = models.CharField(max_length=64, blank=True)
 
     # card = models.ForeignKey(CompanyCard, on_delete=models.CASCADE, blank=True) # FOREIGNKEY
@@ -45,8 +45,8 @@ class Property(models.Model):
     gba = models.PositiveIntegerField(blank=True)
     gla = models.PositiveIntegerField(blank=True)
     built_date = models.DateField(default=now)
-    photo = models.ImageField(null=True, blank=True)
-    plan = models.ImageField(null=True, blank=True)
+    photo = models.ImageField(null=True, blank=True, upload_to="property/photo")
+    plan = models.ImageField(null=True, blank=True, upload_to="property/plan")
 
     # owner = models.ForeignKey(Company, on_delete=models.CASCADE, null=True, blank=True, default="") # FOREIGNKEY
     update = models.DateField(default=now) # НАСТРОИТЬ ДАТУ ОБНОВЛЕНИЯ
@@ -96,8 +96,8 @@ class Block(models.Model):
 
     tech_comment = models.TextField(max_length=256, blank=True)
 
-    photo = models.ImageField(null=True, blank=True)
-    plan = models.ImageField(null=True, blank=True) # , upload_to='dbmediaroot/block/plan'
+    photo = models.ImageField(null=True, blank=True, upload_to="block/photo")
+    plan = models.ImageField(null=True, blank=True, upload_to='block/plan')
 
     update = models.DateField(default=now)  # НАСТРОИТЬ ДАТУ ОБНОВЛЕНИЯ
 
