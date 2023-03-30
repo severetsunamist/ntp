@@ -21,7 +21,7 @@ def home_view(request):
 def property_create_view(request):
     form = PropertyForm()
     if request.method == 'POST':
-        form = PropertyForm(request.POST)  # or None)
+        form = PropertyForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             form = PropertyForm()
@@ -35,10 +35,12 @@ def property_create_view(request):
 def block_create_view(request):
     form = BlockForm()
     if request.method == 'POST':
-        form = BlockForm(request.POST)  # or None)
+        form = BlockForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             form = BlockForm()
+        else:
+            print('DATA IS NOT VALID')
 
     context = {
         'form': form
@@ -49,9 +51,8 @@ def block_create_view(request):
 def company_create_view(request):
     form = CompanyForm()
     if request.method == 'POST':
-        form = CompanyForm(request.POST)  # or None)
+        form = CompanyForm(request.POST, request.FILES)  # or None)
         if form.is_valid():
-
             form.save()
             form = CompanyForm()
 

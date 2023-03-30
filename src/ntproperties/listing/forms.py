@@ -1,6 +1,7 @@
 from django import forms
 from .models import Property, Company, CompanyCard, Block
 from django.utils.translation import gettext_lazy as label
+from bootstrap_datepicker_plus.widgets import DatePickerInput
 
 class CompanyCardForm(forms.ModelForm):
     class Meta:
@@ -68,24 +69,24 @@ class PropertyForm(forms.ModelForm):
             'gba': '',
             'gla': '',
             'built_date': '',
-            'photo': '',
-            'plan': '',
+            'photo': 'Фото',
+            'plan': 'Генеральный план',
             'update': '',
             # 'owner': label('Собственник:')
         }
         widgets = {
-            'property_type': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Тип объекта'}),
+            'property_type': forms.Select(attrs={'class': 'form-select'}),
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Название'}),
-            'region': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Регион'}),
-            'highway': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Шоссе'}),
+            'region': forms.Select(attrs={'class': 'form-select'}),
+            'highway': forms.Select(attrs={'class': 'form-select'}),
             'location': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Координаты'}),
             'address': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Адрес'}),
-            'gba': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Общая площадь'}),
-            'gla': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Арендопригодная площадь'}),
-            'built_date': forms.DateInput(attrs={'class': 'form-control'}),
+            'gba': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Общая площадь, кв. м'}),
+            'gla': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Арендопригодная площадь, кв. м'}),
+            'built_date': DatePickerInput(attrs={'class': 'form-control'}),
             'photo': forms.FileInput(attrs={'class': 'form-control', 'placeholder': 'Фото'}),
             'plan': forms.FileInput(attrs={'class': 'form-control', 'placeholder': 'План'}),
-            'update': forms.DateInput(attrs={'class': 'form-control'}),
+            'update': DatePickerInput(attrs={'class': 'form-control'}),
         }
 
 class BlockForm(forms.ModelForm):
@@ -93,62 +94,141 @@ class BlockForm(forms.ModelForm):
         model = Block
         fields = '__all__'
         labels = {
-            "block_name": label('Название блока'),
-            'active': label('На рынке'),
+            "block_name": '',
+            'active': '',
 
-            'whs_area': label('Площадь склада'),
-            'office_area': label('Площадь офиса'),
-            'mez_area': label('Площадь мезонина'),
+            'total_area': '',
+            'whs_area': '',
+            'office_area': '',
+            'mez_area': '',
 
-            'lease_offered': label('Предлагается в аренду'),
+            'lease_offered': '',
+            'lease_avg_price': '',
+            'lease_whs_price': '',
+            'lease_office_price': '',
+            'lease_mez_price': '',
+            'lease_total_price': '',
+            'opex': '',
+            'opex_included': '',
+            'lease_vat_included': '',
 
-            'lease_whs_price': label('Цена аренды склада'),
-            'lease_office_price': label('Цена аренды офиса'),
-            'lease_mez_price': label('Цена аренды мезонина'),
 
-            'sale_offered': label('Продаётся'),
+            'sale_offered': '',
+            'sale_total_price': '',
+            'sale_avg_price': '',
+            'sale_whs_price': '',
+            'sale_office_price': '',
+            'sale_mez_price': '',
+            'sale_vat_included': '',
 
-            'sale_whs_price': label('Цена за 1 кв. м склада'),
-            'sale_office_price': label('Цена за 1 кв. м офиса'),
-            'sale_mez_price': label('Цена за 1 кв. м мезонина'),
+            'temp': '',
+            'temp_cond_min': '',
+            'temp_cond_max': '',
+            'log_offered': '',
+            'log_price': '',
 
-            '_3pl_offered': label('Предлагаются 3PL услуги'),
-            '_3pl_price': label('Цена за 1 пм/сут'),
+            'commercial_comment': '',
 
-            'commercial_comment': label('Коммерческие комментарии'),
+            'celling_height': '',
+            'column_grid': '',
+            'floor_type': '',
+            'floor_load': '',
+            'floor_level': '',
+            'docks_amount': '',
+            'gates_amount': '',
+            'fire_system_type': '',
+            'el_power': '',
+            'heating': '',
 
-            'celling_height': label('Высота потолка'),
-            'column_grid': label('Сетка колонн'),
-            'floor_type': label('Тип полов'),
-            'floor_load': label('Макс. нагрузка (т/кв. м)'),
-            'docks_amount': label('Кол-во доков'),
-            'gates_amount': label('Кол-во ворот'),
-            'fire_system_type ': label('Система пожаротушения'),
-            'el_power': label('Эл. мощности'),
-            'heating': label('Отопление'),
+            'cross_dock': '',
+            'ramp': '',
+            'racks': '',
+            'cathead': '',
 
-            'cross_dock': label('Кросс-док'),
-            'racks': label('Стеллажи'),
-            'cathead': label('Кран-балка'),
+            'tech_comment': '',
 
-            'tech_comment': label('Технические комментарии'),
+            'photo': '',
+            'plan': '',
 
-            'photo': label('Фото'),
-            'plan': label('План'),
+            'update': '',
+        }
+        widgets = {
+            "block_name": forms.TextInput(attrs={'class': 'form-control'}),
+            'active': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
 
-            'update': label('Дата обновления'),
+            'total_area': forms.NumberInput(attrs={'class': 'form-control'}),
+            'whs_area': forms.NumberInput(attrs={'class': 'form-control'}),
+            'office_area': forms.NumberInput(attrs={'class': 'form-control'}),
+            'mez_area': forms.NumberInput(attrs={'class': 'form-control'}),
 
+            'lease_offered': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'lease_avg_price': forms.NumberInput(attrs={'class': 'form-control'}),
+            'lease_total_price': forms.NumberInput(attrs={'class': 'form-control'}),
+            'lease_whs_price': forms.NumberInput(attrs={'class': 'form-control'}),
+            'lease_office_price': forms.NumberInput(attrs={'class': 'form-control'}),
+            'lease_mez_price': forms.NumberInput(attrs={'class': 'form-control'}),
+            'opex': forms.NumberInput(attrs={'class': 'form-control'}),
+            'opex_included': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'lease_vat_included': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+
+            'sale_offered': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'sale_total_price': forms.NumberInput(attrs={'class': 'form-control'}),
+            'sale_avg_price': forms.NumberInput(attrs={'class': 'form-control'}),
+            'sale_whs_price': forms.NumberInput(attrs={'class': 'form-control'}),
+            'sale_office_price': forms.NumberInput(attrs={'class': 'form-control'}),
+            'sale_mez_price': forms.NumberInput(attrs={'class': 'form-control'}),
+            'sale_vat_included': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+
+            'temp': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'temp_cond_min': forms.NumberInput(attrs={'class': 'form-control', 'placeholder':'мин'}),
+            'temp_cond_max': forms.NumberInput(attrs={'class': 'form-control', 'placeholder':'макс'}),
+            'log_offered': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'log_price': forms.NumberInput(attrs={'class': 'form-control'}),
+
+            'commercial_comment': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Коммерсекие комментарии'}),
+
+            'celling_height': forms.NumberInput(attrs={'class': 'form-control'}),
+            'column_grid': forms.TextInput(attrs={'class': 'form-control'}),
+            'floor_type': forms.Select(attrs={'class': 'form-select'}),
+            'floor_load': forms.NumberInput(attrs={'class': 'form-control'}),
+            'floor_level': forms.NumberInput(attrs={'class': 'form-control'}),
+            'docks_amount': forms.NumberInput(attrs={'class': 'form-control'}),
+            'gates_amount': forms.NumberInput(attrs={'class': 'form-control'}),
+            'fire_system_type': forms.Select(attrs={'class': 'form-select'}),
+            'el_power': forms.TextInput(attrs={'class': 'form-control', 'placeholder': '200 кВт'}),
+            'heating': forms.Select(attrs={'class': 'form-select'}),
+
+            'cross_dock': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'ramp': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'racks': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'cathead': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+
+            'tech_comment': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Технические комментарии'}),
+
+            'photo': forms.FileInput(attrs={'class': 'form-control'}),
+            'plan': forms.FileInput(attrs={'class': 'form-control'}),
+
+            # 'update': DatePickerInput(attrs={'class': 'form-control'}),
         }
 class CompanyForm(forms.ModelForm):
     class Meta:
         model = Company
         fields = '__all__'
         labels = {
-            "brand_name": label('Название бренда'),
-            'landlord': label('Собственник'),
-            'client': label('Клиент'),
-            'agent': label('Агент'),
-            'logist': label('Логистический оператор'),
-            'logo': label('Лого'),
-            'industry': label('Направление бизнеса'),
+            "brand_name": '',
+            'landlord': 'Собственник',
+            'client': 'Клиент',
+            'logist': 'Лог. оператор',
+            'agent': 'Агент',
+            'logo': '',
+            'industry': '',
+        }
+        widgets = {
+            "brand_name": forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Название компании'}),
+            'landlord': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'client': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'agent': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'logist': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'logo': forms.FileInput(attrs={'class': 'form-control'}),
+            'industry': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Сфера деятельности'}),
         }

@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '(zjc2=1twz#%l@ww9bj&g@4^y70vuip#blki5j$27ize*v*w0q' # SECURITY!!!
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True # SECURITY!!!
+DEBUG = True # SECURITY!
 
 ALLOWED_HOSTS = []
 
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'listing',
+    "bootstrap_datepicker_plus",
 ]
 
 MIDDLEWARE = [

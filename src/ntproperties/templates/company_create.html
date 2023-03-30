@@ -1,6 +1,6 @@
 {% extends "home_navbar.html" %}
 {% block content %}
-    <form method="POST"> {% csrf_token %}
+    <form method="POST" action="{% url 'create_company' %}" enctype="multipart/form-data"> {% csrf_token %}
         <div class="container">
                 <div class="col-4 mx-auto">
                     {{ form.as_p }}

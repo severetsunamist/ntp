@@ -1,11 +1,308 @@
 {% extends "home_navbar.html" %}
 {% block content %}
-    <form method="POST"> {% csrf_token %}
-        <div class="container">
-                <div class="col-4 mx-auto">
-                    {{ form.as_p }}
+    <form method="POST" action="{% url 'create_block' %}" enctype="multipart/form-data"> {% csrf_token %}
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        {{ form.media }}
+        <div class="container mx-auto">
+                <div class="row">
+                    <h4>Коммерческие условия</h4>
+                </div>
+            <br>
+                <div class="row">
+                    <div class="col-3"><b>#CHOSE THE PROPERTY [TO DO]</b></div>
+                    <div class="col-2">На рынке {{form.active}}</div>
+                    <div class="col-4">Обновлено {{form.update}}</div>
+                    <div class="col-3">{{form.block_name}}</div>
+                </div>
+            <br>
+                <div class="row">
+                    <div class="col">Площадь, м&#178;</div>
+                    <div class="col">Аренда {{form.lease_offered}}</div>
+                    <div class="col">Продажа {{form.sale_offered}}</div>
+                </div>
+            <br>
+                <div class="row">
+                    <div class="col">Общая</div>
+                    <div class="col">{{form.total_area}}</div>
+                    <div class="col">м&#178;</div>
+                    <div class="col">{{form.lease_avg_price}}</div>
+                    <div class="col">₽/м&#178;/год</div>
+                    <div class="col">{{form.sale_avg_price}}</div>
+                    <div class="col">₽/год</div>
+                </div>
+                <div class="row">
+                    <div class="col">Склад</div>
+                    <div class="col">{{form.whs_area}}</div>
+                    <div class="col">м&#178;</div>
+                    <div class="col">{{form.lease_whs_price}}</div>
+                    <div class="col">₽/м&#178;/год</div>
+                    <div class="col">{{form.sale_whs_price}}</div>
+                    <div class="col"> ₽/м&#178;</div>
+                </div>
+                <div class="row">
+                    <div class="col">Офис</div>
+                    <div class="col">{{form.office_area}}</div>
+                    <div class="col">м&#178;</div>
+                    <div class="col">{{form.lease_office_price}}</div>
+                    <div class="col">₽/м&#178;/год</div>
+                    <div class="col">{{form.sale_office_price}}</div>
+                    <div class="col">₽/м&#178;/год</div>
+                </div>
+                <div class="row">
+                    <div class="col">Мезонин</div>
+                    <div class="col">{{form.mez_area}}</div>
+                    <div class="col">м&#178;</div>
+                    <div class="col">{{form.lease_mez_price}}</div>
+                    <div class="col">₽/м&#178;/год</div>
+                    <div class="col">{{form.sale_mez_price}}</div>
+                    <div class="col">₽/м&#178;/год</div>
+                </div>
+            <br>
+                <div class="row">
+                    <div class="col col-offset">OPEX </div>
+                    <div class="col col-offset">{{form.opex}}</div>
+                    <div class="col col-offset">Итого</div>
+                    <div class="col col-offset">{{form.lease_total_price}}</div>
+                    <div class="col">₽/мес</div>
+                    <div class="col">{{form.sale_total_price}}</div>
+                    <div class="col">₽</div>
+
+                </div>
+                <div class="row">
+                    <div class="col col-offset"></div>
+                    <div class="col col-offset">OPEX включён {{form.opex_included}}</div>
+                    <div class="col col-offset"></div>
+                    <div class="col col-offset">НДС включён {{form.lease_vat_included}}</div>
+                    <div class="col col-offset"></div>
+                    <div class="col">НДС включён {{form.sale_vat_included}}</div>
+                    <div class="col col-offset"></div>
+
+                </div>
+
+            <br>
+                <div class="row">
+                    <h4>Дополнительно</h4>
+                </div>
+            <br>
+                <div class="row">
+                    <div class="col col-offset"></div>
+                    <div class="col col-offset">Температурный режим {{form.temp}}</div>
+                    <div class="col col-offset">{{form.temp_cond_min}}</div>
+                    <div class="col col-offset">{{form.temp_cond_max}}</div>
+                    <div class="col col-offset">&#8451;</div>
+                    <div class="col col-offset"></div>
+                </div>
+                <div class="row">
+                    <div class="col col-offset"></div>
+                    <div class="col col-offset">3PL{{form.log_offered}} </div>
+                    <div class="col col-offset">{{form.log_price}}</div>
+                    <div class="col col-offset">₽/пм/сут</div>
+                    <div class="col col-offset"></div>
+                    <div class="col col-offset"></div>
+                </div>
+            <br>
+                <div class="row">
+                    <h4 class="col-8">Технические характеристики</h4>
+                    <h4 class="col-4">Комментарии и файлы</h4>
+                </div>
+            <br>
+                <div class="row">
+                    <div class="col-2">Высота потолков</div>
+                    <div class="col-1">{{form.celling_height}}</div>
+                    <div class="col-2">Кол-во доков</div>
+                    <div class="col-1">{{form.docks_amount}}</div>
+                    <div class="col-2">Стеллажи {{form.racks}}</div>
+                    <div class="col">{{form.commercial_comment}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-2">Шаг колонн</div>
+                    <div class="col-1">{{form.column_grid}}</div>
+                    <div class="col-2">Кол-во ворот </div>
+                    <div class="col-1">{{form.gates_amount}}</div>
+                    <div class="col-2">Кран-балка {{form.cathead}}</div>
+                    <div class="col">{{form.tech_comment}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-2">Макс. нагрузка</div>
+                    <div class="col-1">{{form.floor_load}}</div>
+                    <div class="col-2">Уровень пола</div>
+                    <div class="col-1">{{form.floor_level}}</div>
+                    <div class="col-2">Рампа {{form.ramp}}</div>
+                </div>
+            <br>
+                <div class="row">
+                    <div class="col-2">Тип полов</div>
+                    <div class="col-3">{{form.floor_type}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-2">Отопление</div>
+                    <div class="col-3">{{form.heating}}</div>
+                    <div class="col">Фото</div>
+                    <div class="col">{{form.photo}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-2">Пожарная система</div>
+                    <div class="col-3">{{form.fire_system_type}}</div>
+                    <div class="col">План</div>
+                    <div class="col">{{form.plan}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-2">Эл. мощности </div>
+                    <div class="col-2">{{form.el_power}}</div>
+                    <div class="col-1">кВт/МВт</div>
                 </div>
         </div>
+        <br>
         <input type="submit" value="Сохранить">
     </form>
 {% endblock %}
+
+
+<!--<div class="container mx-auto">-->
+<!--                <div class="row">-->
+<!--                    <h4>Коммерческие условия</h4>-->
+<!--                </div>-->
+<!--            <br>-->
+<!--                <div class="row">-->
+<!--                    <div class="col-3"><b>#CHOSE THE PROPERTY [TO DO]</b></div>-->
+<!--                    <div class="col-3">На рынке {{form.active}}</div>-->
+<!--                    <div class="col-3">{{form.block_name}}</div>-->
+<!--                    <div class="col-3">{{form.update}}</div>-->
+<!--                </div>-->
+<!--            <br>-->
+<!--                <div class="row">-->
+<!--                    <div class="col">Площадь, м&#178;</div>-->
+<!--                    <div class="col">Аренда {{form.lease_offered}}</div>-->
+<!--                    <div class="col">Продажа {{form.sale_offered}}</div>-->
+<!--                </div>-->
+<!--            <br>-->
+<!--                <div class="row">-->
+<!--                    <div class="col">Общая</div>-->
+<!--                    <div class="col">{{form.total_area}}</div>-->
+<!--                    <div class="col">м&#178;</div>-->
+<!--                    <div class="col">{{form.lease_avg_price}}</div>-->
+<!--                    <div class="col">₽/м&#178;/год</div>-->
+<!--                    <div class="col">{{form.sale_avg_price}}</div>-->
+<!--                    <div class="col">₽/год</div>-->
+<!--                </div>-->
+<!--                <div class="row">-->
+<!--                    <div class="col">Склад</div>-->
+<!--                    <div class="col">{{form.whs_area}}</div>-->
+<!--                    <div class="col">м&#178;</div>-->
+<!--                    <div class="col">{{form.lease_whs_price}}</div>-->
+<!--                    <div class="col">₽/м&#178;/год</div>-->
+<!--                    <div class="col">{{form.sale_whs_price}}</div>-->
+<!--                    <div class="col"> ₽/м&#178;</div>-->
+<!--                </div>-->
+<!--                <div class="row">-->
+<!--                    <div class="col">Офис</div>-->
+<!--                    <div class="col">{{form.office_area}}</div>-->
+<!--                    <div class="col">м&#178;</div>-->
+<!--                    <div class="col">{{form.lease_office_price}}</div>-->
+<!--                    <div class="col">₽/м&#178;/год</div>-->
+<!--                    <div class="col">{{form.sale_office_price}}</div>-->
+<!--                    <div class="col">₽/м&#178;/год</div>-->
+<!--                </div>-->
+<!--                <div class="row">-->
+<!--                    <div class="col">Мезонин</div>-->
+<!--                    <div class="col">{{form.mez_area}}</div>-->
+<!--                    <div class="col">м&#178;</div>-->
+<!--                    <div class="col">{{form.lease_mez_price}}</div>-->
+<!--                    <div class="col">₽/м&#178;/год</div>-->
+<!--                    <div class="col">{{form.sale_mez_price}}</div>-->
+<!--                    <div class="col">₽/м&#178;/год</div>-->
+<!--                </div>-->
+<!--            <br>-->
+<!--                <div class="row">-->
+<!--                    <div class="col col-offset">OPEX </div>-->
+<!--                    <div class="col col-offset">{{form.opex}}</div>-->
+<!--                    <div class="col col-offset">Итого</div>-->
+<!--                    <div class="col col-offset">{{form.lease_total_price}}</div>-->
+<!--                    <div class="col">₽/мес</div>-->
+<!--                    <div class="col">{{form.sale_total_price}}</div>-->
+<!--                    <div class="col">₽</div>-->
+
+<!--                </div>-->
+<!--                <div class="row">-->
+<!--                    <div class="col col-offset"></div>-->
+<!--                    <div class="col col-offset">OPEX включён {{form.opex_included}}</div>-->
+<!--                    <div class="col col-offset"></div>-->
+<!--                    <div class="col col-offset">НДС включён {{form.lease_vat_included}}</div>-->
+<!--                    <div class="col col-offset"></div>-->
+<!--                    <div class="col">НДС включён {{form.sale_vat_included}}</div>-->
+<!--                    <div class="col col-offset"></div>-->
+
+<!--                </div>-->
+
+<!--            <br>-->
+<!--                <div class="row">-->
+<!--                    <h4>Дополнительно</h4>-->
+<!--                </div>-->
+<!--            <br>-->
+<!--                <div class="row">-->
+<!--                    <div class="col col-offset"></div>-->
+<!--                    <div class="col col-offset">Температурный режим {{form.temp}}</div>-->
+<!--                    <div class="col col-offset">{{form.temp_cond_min}}</div>-->
+<!--                    <div class="col col-offset">{{form.temp_cond_max}}</div>-->
+<!--                    <div class="col col-offset">&#8451;</div>-->
+<!--                    <div class="col col-offset"></div>-->
+<!--                </div>-->
+<!--                <div class="row">-->
+<!--                    <div class="col col-offset"></div>-->
+<!--                    <div class="col col-offset">3PL{{form.log_offered}} </div>-->
+<!--                    <div class="col col-offset">{{form.log_price}}</div>-->
+<!--                    <div class="col col-offset">₽/пм/сут</div>-->
+<!--                    <div class="col col-offset"></div>-->
+<!--                    <div class="col col-offset"></div>-->
+<!--                </div>-->
+<!--            <br>-->
+<!--                <div class="row">-->
+<!--                    <h4 class="col-8">Технические характеристики</h4>-->
+<!--                    <h4 class="col-4">Комментарии и файлы</h4>-->
+<!--                </div>-->
+<!--            <br>-->
+<!--                <div class="row">-->
+<!--                    <div class="col-2">Высота потолков</div>-->
+<!--                    <div class="col-1">{{form.celling_height}}</div>-->
+<!--                    <div class="col-2">Кол-во доков</div>-->
+<!--                    <div class="col-1">{{form.docks_amount}}</div>-->
+<!--                    <div class="col-2">Стеллажи {{form.racks}}</div>-->
+<!--                    <div class="col">{{form.commercial_comment}}</div>-->
+<!--                </div>-->
+<!--                <div class="row">-->
+<!--                    <div class="col-2">Шаг колонн</div>-->
+<!--                    <div class="col-1">{{form.column_grid}}</div>-->
+<!--                    <div class="col-2">Кол-во ворот </div>-->
+<!--                    <div class="col-1">{{form.gates_amount}}</div>-->
+<!--                    <div class="col-2">Кран-балка {{form.cathead}}</div>-->
+<!--                    <div class="col">{{form.tech_comment}}</div>-->
+<!--                </div>-->
+<!--                <div class="row">-->
+<!--                    <div class="col-2">Макс. нагрузка</div>-->
+<!--                    <div class="col-1">{{form.floor_load}}</div>-->
+<!--                    <div class="col-2">Уровень пола</div>-->
+<!--                    <div class="col-1">{{form.floor_level}}</div>-->
+<!--                    <div class="col-2">Рампа {{form.ramp}}</div>-->
+<!--                </div>-->
+<!--            <br>-->
+<!--                <div class="row">-->
+<!--                    <div class="col-2">Тип полов</div>-->
+<!--                    <div class="col-3">{{form.floor_type}}</div>-->
+<!--                </div>-->
+<!--                <div class="row">-->
+<!--                    <div class="col-2">Отопление</div>-->
+<!--                    <div class="col-3">{{form.heating}}</div>-->
+<!--                    <div class="col">Фото</div>-->
+<!--                    <div class="col">{{form.photo}}</div>-->
+<!--                </div>-->
+<!--                <div class="row">-->
+<!--                    <div class="col-2">Пожарная система</div>-->
+<!--                    <div class="col-3">{{form.fire_system_type}}</div>-->
+<!--                    <div class="col">План</div>-->
+<!--                    <div class="col">{{form.plan}}</div>-->
+<!--                </div>-->
+<!--                <div class="row">-->
+<!--                    <div class="col-2">Эл. мощности </div>-->
+<!--                    <div class="col-2">{{form.el_power}}</div>-->
+<!--                    <div class="col-1">кВт/МВт</div>-->
+<!--                </div>-->
