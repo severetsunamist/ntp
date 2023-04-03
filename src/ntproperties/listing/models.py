@@ -37,14 +37,16 @@ class Company(models.Model):
 
 class Property(models.Model):
     property_type = models.CharField(max_length=dropdown.property_types_max_len,  choices=dropdown.property_types, default="Складской комплекс")
-    name = models.CharField(max_length=64)
-    region = models.CharField(max_length=dropdown.regions_max_len, choices=dropdown.regions, default="Москва")
+    name = models.CharField(max_length=64, blank=False)
+    gla = models.PositiveIntegerField(blank=False)
+    # gba = models.PositiveIntegerField(blank=True)
+    region = models.CharField(max_length=dropdown.regions_max_len, choices=dropdown.regions, default="Москва", blank=False)
     highway = models.CharField(max_length=dropdown.highways_max_len, choices=dropdown.highways, default="в черте МКАД")
-    location = models.CharField(max_length=22, blank=True) # make map location picker
+    kad_distance = models.PositiveSmallIntegerField(default=None, null=True, blank=True)
+    location_latitude = models.CharField(max_length=10, null=True, blank=False) # широта
+    location_longitude = models.CharField(max_length=10, null=True, blank=False) # долгота
     address = models.CharField(max_length=256, blank=True)
-    gba = models.PositiveIntegerField(blank=True)
-    gla = models.PositiveIntegerField(blank=True)
-    built_date = models.DateField(default=now)
+    built_date = models.DateField(default=None, blank=True, null=True)
     photo = models.ImageField(null=True, blank=True, upload_to="property/photo")
     plan = models.ImageField(null=True, blank=True, upload_to="property/plan")
 

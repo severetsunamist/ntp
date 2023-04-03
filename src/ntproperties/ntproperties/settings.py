@@ -126,3 +126,14 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images') #python manage.py collectstatic
+
+BOOTSTRAP_DATEPICKER_PLUS = {
+    "options": {
+        "locale": "ru",
+    },
+    "variant_options": {
+        "date": {
+            "format": "DD/MM/YYYY",
+        },
+    }
+}

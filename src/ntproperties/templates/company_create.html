@@ -1,11 +1,24 @@
 {% extends "home_navbar.html" %}
 {% block content %}
-    <form method="POST" action="{% url 'create_company' %}" enctype="multipart/form-data"> {% csrf_token %}
-        <div class="container">
-                <div class="col-4 mx-auto">
-                    {{ form.as_p }}
-                </div>
+    <div class="container">
+        <div class="row">
+                <div class="col mx-auto">
+                <h4>Создать компанию</h4>
+                    <br>
+                <form method="POST" action="{% url 'create_company' %}" enctype="multipart/form-data"> {% csrf_token %}
+                    {{ form1.as_p }}
+                    <input type="submit" value="Сохранить">
+                </form>
+            </div>
+            <div class="col-1 col-offset"></div>
+            <div class="col mx-auto">
+                <h4>Создать юр. лицо</h4>
+                <br>
+                <form method="POST" action="{% url 'create_company' %}" enctype="multipart/form-data"> {% csrf_token %}
+                    {{ form2.as_p }}
+                    <input type="submit" value="Сохранить">
+                </form>
+            </div>
         </div>
-        <input type="submit" value="Сохранить">
-    </form>
+    </div>
 {% endblock %}

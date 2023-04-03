@@ -27,7 +27,7 @@ urlpatterns = [
     path('createproperty', property_create_view, name='create_property'),
     path('createblock', block_create_view, name='create_block'),
     path('createcompany', company_create_view, name='create_company'),
-    path('createcompanycard', companycard_create_view, name='create_company_card'),
+
     path('property', property_view),
     path('property/<int:pk>', property_card_view),
 ]

@@ -49,31 +49,37 @@ def block_create_view(request):
 
 
 def company_create_view(request):
-    form = CompanyForm()
+    form1 = CompanyForm()
+    form2 = CompanyCardForm()
     if request.method == 'POST':
-        form = CompanyForm(request.POST, request.FILES)  # or None)
-        if form.is_valid():
-            form.save()
-            form = CompanyForm()
+        form1 = CompanyForm(request.POST, request.FILES)
+        form2 = CompanyCardForm(request.POST)
+        if form1.is_valid():
+            form1.save()
+            form1 = CompanyForm()
+        if form2.is_valid():
+            form2.save()
+            form2 = CompanyCardForm()
 
     context = {
-        'form': form
+        'form1': form1,
+        'form2': form2,
     }
     return render(request, 'company_create.html', context)
 
 
-def companycard_create_view(request):
-    form = CompanyCardForm()
-    if request.method == 'POST':
-        form = CompanyCardForm(request.POST)  # or None)
-        if form.is_valid():
-            form.save()
-            form = CompanyCardForm()
-
-    context = {
-        'form': form
-    }
-    return render(request, 'companycard_create.html', context)
+# def companycard_create_view(request):
+#     form = CompanyCardForm()
+#     if request.method == 'POST':
+#         form = CompanyCardForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             form = CompanyCardForm()
+#
+#     context = {
+#         'form': form
+#     }
+#     return render(request, 'companycard_create.html', context)
 
 def property_view(request):
     prop = Property.objects.all()
