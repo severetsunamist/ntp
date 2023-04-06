@@ -165,7 +165,7 @@ class BlockForm(forms.ModelForm):
             'office_area': forms.NumberInput(attrs={'class': 'form-control'}),
             'mez_area': forms.NumberInput(attrs={'class': 'form-control'}),
 
-            'lease_offered': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'lease_offered': forms.CheckboxInput(attrs={'class': 'btn-check', 'id': 'check_lease_offered', 'autocomplete': 'off','checked': True}),
             'lease_avg_price': forms.NumberInput(attrs={'class': 'form-control'}),
             'lease_total_price': forms.NumberInput(attrs={'class': 'form-control'}),
             'lease_whs_price': forms.NumberInput(attrs={'class': 'form-control'}),
@@ -175,7 +175,7 @@ class BlockForm(forms.ModelForm):
             'opex_included': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
             'lease_vat_included': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
 
-            'sale_offered': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'sale_offered': forms.CheckboxInput(attrs={'class': 'col-1 btn-check', 'id': 'check_sale_offered', 'autocomplete': 'off', 'checked': False}),
             'sale_total_price': forms.NumberInput(attrs={'class': 'form-control'}),
             'sale_avg_price': forms.NumberInput(attrs={'class': 'form-control'}),
             'sale_whs_price': forms.NumberInput(attrs={'class': 'form-control'}),
