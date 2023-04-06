@@ -9,12 +9,27 @@
                     <div class="auto-mx g-2"><h5><b>Создать вакансию</b></h5></div>
                 </div>
                 <div class="row">
-                    <div class="col-3"><b>#CHOSE THE PROPERTY [TO DO]</b></div>
-                    <div class="col-2">На рынке {{form.active}}</div>
-                    <div class="col-4">Обновлено {{form.update}}</div>
-                    <div class="col-3">{{form.block_name}}</div>
+                    <div class="col auto-mx g-2"><b>#CHOSE THE PROPERTY [TO DO]</b></div>
+                    <div class="col-2 auto-mx g-2">{{form.block_name}}</div>
+                    <div class="col g-2">
+                        <div class="input-group">
+                            <div class="input-group-text">Дата обновления</div>
+                            <div class="col">{{ form.update }}</div>
+                        </div>
+                    </div>
+                    <div class="col-4 auto-mx g-2">
+                        <div class="input-group">
+                            <div class="col-8 input-group-text"><b>На рынке</b></div>
+                            {{form.active}}
+                            <label class="col-4 btn btn-outline-primary" for="check_active">
+                                <svg id="checked-icon-11" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
+                                <svg id="unchecked-icon-11" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" style="display:none" class="bi bi-x-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/></svg>
+                            </label>
+                        </div>
+                    </div>
+
+
                 </div>
-            <br>
                 <div class="row">
                     <div class="col-4 auto-mx g-2" style="padding:7px;"><b>Площадь</b></div>
                     <div class="col-4 auto-mx g-2">
@@ -22,8 +37,8 @@
                             <div class="col-9 input-group-text"><b>Предлагается в Аренду</b></div>
                             {{form.lease_offered}}
                             <label class="col-3 btn btn-outline-primary" for="check_lease_offered">
-                                <svg id="checked-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
-                                <svg id="unchecked-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" style="display:none" class="bi bi-x-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/></svg>
+                                <svg id="checked-icon-0" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
+                                <svg id="unchecked-icon-0" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" style="display:none" class="bi bi-x-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/></svg>
                             </label>
                         </div>
                     </div>
@@ -32,7 +47,8 @@
                             <div class="col-9 input-group-text"><b>Предлагается на Продажу</b></div>
                             {{form.sale_offered}}
                             <label class="col-3 btn btn-outline-primary" for="check_sale_offered">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
+                                <svg id="checked-icon-1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" style="display:none" class="bi bi-check-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
+                                <svg id="unchecked-icon-1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  class="bi bi-x-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/></svg>
                             </label>
                         </div>
                     </div>
@@ -136,15 +152,22 @@
                     <div class="col-4 auto-mx g-2">
                         <div class="input-group">
                             <div class="col-4 input-group-text">OPEX</div>
-                            {{ form.opex}}
-                            <div class="col-3 input-group-text">₽/м&#178;/год</div>
+                            {{form.opex}}
+                            <div class="col-3 input-group-text">₽/м&#178;</div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-4 col-offset auto-mx g-2"></div>
-                    <div class="col-4 auto-mx g-2">
-                            <div class="from-check form-switch"> {{form.opex_included}}  OPEX включён в ставку</div>
+                        <div class="col-4 auto-mx g-2">
+                            <div class="input-group">
+                            <div class="col-9 input-group-text">OPEX включён в ставку</div>
+                            {{form.opex_included}}
+                            <label class="col-3 btn btn-outline-primary" for="check_opex_included">
+                                <svg id="checked-icon-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" style="display:none" class="bi bi-check-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
+                                <svg id="unchecked-icon-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  class="bi bi-x-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/></svg>
+                            </label>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
@@ -167,110 +190,215 @@
                 <div class="row">
                     <div class="col-4 col-offset auto-mx g-2"></div>
                     <div class="col-4 auto-mx g-2">
-                            <div class="from-check form-switch"> {{form.lease_vat_included}} НДС включён в ставку</div>
+                        <div class="input-group">
+                            <div class="col-9 input-group-text">НДС включён в ставку</div>
+                            {{form.lease_vat_included}}
+                            <label class="col-3 btn btn-outline-primary" for="check_lease_vat_included">
+                                <svg id="checked-icon-3" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" style="display:none" class="bi bi-check-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
+                                <svg id="unchecked-icon-3" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  class="bi bi-x-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/></svg>
+                            </label>
+                        </div>
                     </div>
                     <div class="col-4 auto-mx g-2">
-                            <div class="from-check form-switch"> {{form.sale_vat_included}} НДС включён в ставку</div>
+                        <div class="input-group">
+                            <div class="col-9 input-group-text">НДС включён в цену</div>
+                            {{form.sale_vat_included}}
+                            <label class="col-3 btn btn-outline-primary" for="check_sale_vat_included">
+                                <svg id="checked-icon-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" style="display:none" class="bi bi-check-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
+                                <svg id="unchecked-icon-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  class="bi bi-x-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/></svg>
+                            </label>
+                        </div>
                     </div>
                 </div>
-            <br>
                 <div class="row">
-                    <div class="auto-mx g-2"><h6><b>Дополнительно</b></h6></div>
+                    <div class="auto-mx g-3"><h6><b>Дополнительно</b></h6></div>
                 </div>
                 <div class="row">
-                    <div class="col-5 auto-mx g-2">
+                    <div class="col-6 auto-mx g-2">
                         <div class="input-group">
-                            <div class="col-1 from-check form-switch" style="padding:7px;">{{form.temp}}</div>
+
+
                             <div class="col input-group-text">Температурный режим</div>
                             {{form.temp_cond_min}}
                             <div class="input-group-text"> ... </div>
                             {{form.temp_cond_max}}
                             <div class="input-group-text">&#8451;</div>
+                            {{ form.temp }}
+                            <label class="col-2 btn btn-outline-primary" for="check_temp">
+                                <svg id="checked-icon-5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" style="display:none" class="bi bi-check-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
+                                <svg id="unchecked-icon-5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  class="bi bi-x-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/></svg>
+                            </label>
+
                         </div>
                     </div>
-                    <div class="col-2 col-offset"></div>
-                    <div class="col-5 auto-mx g-2">
+                    <div class="col-6 auto-mx g-2">
                         <div class="input-group">
-                            <div class="col-1 from-check form-switch" style="padding:7px;">{{form.log_offered}}</div>
+
+
                             <div class="col input-group-text">Предлагаются услуги 3PL</div>
                             {{form.log_price}}
                             <div class="input-group-text">₽/пм/сут</div>
+                            {{form.log_offered}}
+                            <label class="col-2 btn btn-outline-primary" for="check_log_offered">
+                                <svg id="checked-icon-6" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" style="display:none" class="bi bi-check-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
+                                <svg id="unchecked-icon-6" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  class="bi bi-x-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/></svg>
+                            </label>
+
                         </div>
                     </div>
                 </div>
-            <br>
                 <div class="row">
-                    <div class="col-9 auto-mx g-2"><h6><b>Технические характеристики</b></h6></div>
-                    <div class="col-3 auto-mx g-2"><h6><b>Комментарии и файлы</b></h6></div>
+                    <div class="col-6 auto-mx g-3"><h6><b>Технические характеристики</b></h6></div>
+                    <div class="col-1 col-offset g-3"></div>
+                    <div class="col auto-mx g-3"><h6><b>Комментарии и файлы</b></h6></div>
                 </div>
-            <br>
                 <div class="row">
                     <div class="col-3 auto-mx g-2">
                         <div class="input-group">
-                            <div class="input-group-text">Высота потолков</div>
+                            <div class="col-6 input-group-text">Высота потолков</div>
                             {{form.celling_height}}
                             <div class="input-group-text">м</div>
                         </div>
                     </div>
                     <div class="col-3 auto-mx g-2">
                         <div class="input-group">
-                            <div class="input-group-text">Кол-во доков</div>
+                            <div class="col-6 input-group-text">Кол-во доков</div>
                             {{form.docks_amount}}
                             <div class="input-group-text">шт</div>
                         </div>
                     </div>
-                    <div class="col-3 auto-mx g-2">
+                    <div class="col-2 auto-mx g-2">
                         <div class="input-group">
-                            <div class="col-1 from-check form-switch" style="padding-top:7px;">{{form.racks}}</div>
-                            <div class="col-2" style="padding:7px;">Стеллажи</div>
+                            <div class="col input-group-text">Стеллажи</div>
+                            {{form.racks}}
+                            <label class="col btn btn-outline-primary" for="check_racks">
+                                <svg id="checked-icon-7" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" style="display:none" class="bi bi-check-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
+                                <svg id="unchecked-icon-7" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  class="bi bi-x-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/></svg>
+                            </label>
                         </div>
                     </div>
-                    <div class="col">{{form.commercial_comment}}</div>
+                    <div class="col auto-mx g-2">{{form.commercial_comment}}</div>
                 </div>
                 <div class="row">
-                    <div class="col-2">Шаг колонн</div>
-                    <div class="col-1">{{form.column_grid}}</div>
-                    <div class="col-2">Кол-во ворот </div>
-                    <div class="col-1">{{form.gates_amount}}</div>
-                    <div class="col-2">Кран-балка {{form.cathead}}</div>
-                    <div class="col">{{form.tech_comment}}</div>
+                    <div class="col-3 auto-mx g-2">
+                        <div class="input-group">
+                            <div class="col-6 input-group-text">Шаг колонн</div>
+                            {{form.column_grid}}
+                            <div class="input-group-text">м</div>
+                        </div>
+                    </div>
+                    <div class="col-3 auto-mx g-2">
+                        <div class="input-group">
+                            <div class="col-6 input-group-text">Кол-во ворот</div>
+                            {{form.gates_amount}}
+                            <div class="input-group-text">шт</div>
+                        </div>
+                    </div>
+                    <div class="col-2 auto-mx g-2">
+                        <div class="input-group">
+                            <div class="col-6 input-group-text">Кран-балка</div>
+                            {{form.cathead}}
+                            <label class="col btn btn-outline-primary" for="check_cathead">
+                                <svg id="checked-icon-8" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" style="display:none" class="bi bi-check-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
+                                <svg id="unchecked-icon-8" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  class="bi bi-x-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/></svg>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col auto-mx g-2">{{form.tech_comment}}</div>
                 </div>
                 <div class="row">
-                    <div class="col-2">Макс. нагрузка</div>
-                    <div class="col-1">{{form.floor_load}}</div>
-                    <div class="col-2">Уровень пола</div>
-                    <div class="col-1">{{form.floor_level}}</div>
-                    <div class="col-2">Рампа {{form.ramp}}</div>
+                    <div class="col-3 auto-mx g-2">
+                        <div class="input-group">
+                            <div class="col-6 input-group-text">Макс. нагрузка</div>
+                            {{form.floor_load}}
+                            <div class="input-group-text">т/м&#178;</div>
+                        </div>
+                    </div>
+                    <div class="col-3 auto-mx g-2">
+                        <div class="input-group">
+                            <div class="col-6 input-group-text">Уровень пола</div>
+                            {{form.floor_level}}
+                            <div class="input-group-text">м</div>
+                        </div>
+                    </div>
+                    <div class="col-2 auto-mx g-2">
+                        <div class="input-group">
+                            <div class="col-6 input-group-text">Рампа</div>
+                            {{form.ramp}}
+                            <label class="col btn btn-outline-primary" for="check_ramp">
+                                <svg id="checked-icon-9" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" style="display:none" class="bi bi-check-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
+                                <svg id="unchecked-icon-9" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  class="bi bi-x-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/></svg>
+                            </label>
+                        </div>
+                    </div>
                 </div>
-            <br>
                 <div class="row">
-                    <div class="col-2">Тип полов</div>
-                    <div class="col-3">{{form.floor_type}}</div>
+                    <div class="col-3 auto-mx g-2">
+                            <div class="input-group">
+                                <div class="col-5 input-group-text">Тип полов</div>
+                                {{form.floor_type}}
+                            </div>
+                        </div>
+                        <div class="col-3 auto-mx g-2">
+                            <div class="input-group">
+                                <div class="col-5 input-group-text">Отопление</div>
+                                {{form.heating}}
+                            </div>
+                        </div>
+                        <div class="col-2 auto-mx g-2">
+                            <div class="input-group">
+                                <div class="col-6 input-group-text">Кросс-док</div>
+                                {{form.cross_dock}}
+                                <label class="col btn btn-outline-primary" for="check_cross_dock">
+                                    <svg id="checked-icon-10" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" style="display:none" class="bi bi-check-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
+                                    <svg id="unchecked-icon-10" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  class="bi bi-x-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/></svg>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-4 auto-mx g-2">
+                            <div class="input-group">
+                                <div class="col-5 input-group-text">Фото</div>
+                                {{form.photo}}
+                            </div>
+                        </div>
+
+
                 </div>
                 <div class="row">
-                    <div class="col-2">Отопление</div>
-                    <div class="col-3">{{form.heating}}</div>
-                    <div class="col">Фото</div>
-                    <div class="col">{{form.photo}}</div>
-                </div>
-                <div class="row">
-                    <div class="col-2">Пожарная система</div>
-                    <div class="col-3">{{form.fire_system_type}}</div>
-                    <div class="col">План</div>
-                    <div class="col">{{form.plan}}</div>
-                </div>
-                <div class="row">
-                    <div class="col-2">Эл. мощности </div>
-                    <div class="col-2">{{form.el_power}}</div>
-                    <div class="col-1">кВт/МВт</div>
+                    <div class="col-3 auto-mx g-2">
+                        <div class="input-group"><div class="col-5 input-group-text">
+                            Пожарная система
+                        </div>
+                            {{form.fire_system_type}}
+                        </div>
+                    </div>
+                    <div class="col-3 auto-mx g-2">
+                        <div class="input-group">
+                            <div class="col-5 input-group-text">Эл. мощности</div>
+                            {{form.el_power}}
+                            <div class="input-group-text">кВт</div>
+                        </div>
+                    </div>
+                    <div class="col-2 col-offset"></div>
+                    <div class="col-4 auto-mx g-2">
+                        <div class="input-group">
+                            <div class="col-5 input-group-text">
+                                План
+                            </div>
+                            {{ form.plan }}
+                        </div>
+                    </div>
                 </div>
         </div>
         <br>
-        <input type="submit" value="Сохранить">
+        <input class='btn btn-primary' type="submit" value="Сохранить">
     </form>
     <!-- Changes icon depending on checkbox status -->
     <script>
-    const arr_checkbox_ids = ['#check_lease_offered']
+    const arr_checkbox_ids = ['#check_lease_offered','#check_sale_offered','#check_opex_included',
+                              '#check_lease_vat_included', '#check_sale_vat_included', '#check_temp',
+                              '#check_log_offered','#check_racks', '#check_cathead',
+                              '#check_ramp', '#check_cross_dock', '#check_active']
     const arr_checkboxes = []
     const arr_checked_icons = []
     const arr_unchecked_icons = []
@@ -278,8 +406,8 @@
     for (let i = 0; i < arr_checkbox_ids.length; i++) {
         window.addEventListener('DOMContentLoaded', () => {
             arr_checkboxes.push(document.querySelector(arr_checkbox_ids[i]));
-            arr_checked_icons.push(document.querySelector('#checked-icon'));
-            arr_unchecked_icons.push(document.querySelector('#unchecked-icon'));
+            arr_checked_icons.push(document.querySelector('#checked-icon-' + i));
+            arr_unchecked_icons.push(document.querySelector('#unchecked-icon-' + i));
 
             arr_checkboxes[i].addEventListener('change', () => {
             if (arr_checkboxes[i].checked) {

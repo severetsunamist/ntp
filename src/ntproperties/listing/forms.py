@@ -158,7 +158,7 @@ class BlockForm(forms.ModelForm):
         }
         widgets = {
             "block_name": forms.TextInput(attrs={'class': 'form-control'}),
-            'active': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'active': forms.CheckboxInput(attrs={'class': 'col-1 btn-check', 'id': 'check_active', 'autocomplete': 'off', 'checked': True}),
 
             'total_area': forms.NumberInput(attrs={'class': 'form-control'}),
             'whs_area': forms.NumberInput(attrs={'class': 'form-control'}),
@@ -172,8 +172,8 @@ class BlockForm(forms.ModelForm):
             'lease_office_price': forms.NumberInput(attrs={'class': 'form-control'}),
             'lease_mez_price': forms.NumberInput(attrs={'class': 'form-control'}),
             'opex': forms.NumberInput(attrs={'class': 'form-control'}),
-            'opex_included': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
-            'lease_vat_included': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'opex_included': forms.CheckboxInput(attrs={'class': 'col-1 btn-check', 'id': 'check_opex_included', 'autocomplete': 'off', 'checked': False}),
+            'lease_vat_included': forms.CheckboxInput(attrs={'class': 'col-1 btn-check', 'id': 'check_lease_vat_included', 'autocomplete': 'off', 'checked': False}),
 
             'sale_offered': forms.CheckboxInput(attrs={'class': 'col-1 btn-check', 'id': 'check_sale_offered', 'autocomplete': 'off', 'checked': False}),
             'sale_total_price': forms.NumberInput(attrs={'class': 'form-control'}),
@@ -181,12 +181,12 @@ class BlockForm(forms.ModelForm):
             'sale_whs_price': forms.NumberInput(attrs={'class': 'form-control'}),
             'sale_office_price': forms.NumberInput(attrs={'class': 'form-control'}),
             'sale_mez_price': forms.NumberInput(attrs={'class': 'form-control'}),
-            'sale_vat_included': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'sale_vat_included': forms.CheckboxInput(attrs={'class': 'col-1 btn-check', 'id': 'check_sale_vat_included', 'autocomplete': 'off', 'checked': False}),
 
-            'temp': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'temp': forms.CheckboxInput(attrs={'class': 'col-1 btn-check', 'id': 'check_temp', 'autocomplete': 'off', 'checked': False}),
             'temp_cond_min': forms.NumberInput(attrs={'class': 'form-control', 'placeholder':'мин'}),
             'temp_cond_max': forms.NumberInput(attrs={'class': 'form-control', 'placeholder':'макс'}),
-            'log_offered': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'log_offered': forms.CheckboxInput(attrs={'class': 'col-1 btn-check', 'id': 'check_log_offered', 'autocomplete': 'off', 'checked': False}),
             'log_price': forms.NumberInput(attrs={'class': 'form-control'}),
 
             'commercial_comment': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Коммерсекие комментарии'}),
@@ -202,17 +202,17 @@ class BlockForm(forms.ModelForm):
             'el_power': forms.TextInput(attrs={'class': 'form-control', 'placeholder': '200 кВт'}),
             'heating': forms.Select(attrs={'class': 'form-select'}),
 
-            'cross_dock': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
-            'ramp': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
-            'racks': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
-            'cathead': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'cross_dock': forms.CheckboxInput(attrs={'class': 'btn-check', 'id': 'check_cross_dock', 'autocomplete': 'off', 'checked': False}),
+            'ramp': forms.CheckboxInput(attrs={'class': 'btn-check', 'id': 'check_ramp', 'autocomplete': 'off', 'checked': False}),
+            'racks': forms.CheckboxInput(attrs={'class': 'btn-check', 'id': 'check_racks', 'autocomplete': 'off', 'checked': False}),
+            'cathead': forms.CheckboxInput(attrs={'class': 'btn-check', 'id': 'check_cathead', 'autocomplete': 'off', 'checked': False}),
 
             'tech_comment': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Технические комментарии'}),
 
             'photo': forms.FileInput(attrs={'class': 'form-control'}),
             'plan': forms.FileInput(attrs={'class': 'form-control'}),
 
-            # 'update': DatePickerInput(attrs={'class': 'form-control'}),
+            'update': DatePickerInput(attrs={'style': 'border-radius: 0px;', 'class': 'form-control'}),
         }
 class CompanyForm(forms.ModelForm):
     class Meta:
