@@ -229,10 +229,10 @@ class CompanyForm(forms.ModelForm):
         }
         widgets = {
             "brand_name": forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Название компании'}),
-            'landlord': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
-            'client': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
-            'agent': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
-            'logist': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
-            'logo': forms.FileInput(attrs={'class': 'form-control'}),
+            'landlord': forms.CheckboxInput(attrs={'class': 'btn-check', 'id': 'check_landlord', 'autocomplete': 'off', 'checked': True}),
+            'client': forms.CheckboxInput(attrs={'class': 'btn-check', 'id': 'check_client', 'autocomplete': 'off', 'checked': False}),
+            'agent': forms.CheckboxInput(attrs={'class': 'btn-check', 'id': 'check_agent', 'autocomplete': 'off', 'checked': False}),
+            'logist': forms.CheckboxInput(attrs={'class': 'btn-check', 'id': 'check_logist', 'autocomplete': 'off', 'checked': False}),
+            'logo': forms.FileInput(attrs={'style': 'display: none;','class': 'form-control'}),
             'industry': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Сфера деятельности'}),
         }
