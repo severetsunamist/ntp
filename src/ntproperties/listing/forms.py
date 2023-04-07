@@ -209,8 +209,8 @@ class BlockForm(forms.ModelForm):
 
             'tech_comment': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Технические комментарии'}),
 
-            'photo': forms.FileInput(attrs={'class': 'form-control'}),
-            'plan': forms.FileInput(attrs={'class': 'form-control'}),
+            'photo': forms.FileInput(attrs={'style': 'display: none;', 'class': 'form-control'}),
+            'plan': forms.FileInput(attrs={'style': 'display: none;', 'class': 'form-control'}),
 
             'update': DatePickerInput(attrs={'style': 'border-radius: 0px;', 'class': 'form-control'}),
         }
