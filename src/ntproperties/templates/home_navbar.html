@@ -21,9 +21,9 @@
           </div>
           <div>
             <ul class="nav">
-            <li><a href="createproperty" class="nav-link px-2 link-secondary">Создать объект</a></li>
-            <li><a href="createblock" class="nav-link px-2 link-dark">Создать блок</a></li>
-            <li><a href="createcompany" class="nav-link px-2 link-dark">Создать компанию</a></li>
+            <li><a href="/createproperty" class="nav-link px-2 link-secondary">Создать объект</a></li> <!-- "createproperty" -->
+            <li><a href="/createblock" class="nav-link px-2 link-dark">Создать блок</a></li>
+            <li><a href="/createcompany" class="nav-link px-2 link-dark">Создать компанию</a></li>
           </ul>
           </div>
         </div>
@@ -40,6 +40,60 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    <script>
+      ymaps.ready(function () {
+      var myMap = new ymaps.Map('map', {
+              center: [55.751574, 37.573856],
+              zoom: 9
+          }, {
+              searchControlProvider: 'yandex#search'
+          }),
 
+          // Создаём макет содержимого.
+          MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
+              '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
+          ),
+
+          myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
+              hintContent: 'Собственный значок метки',
+              balloonContent: 'Это красивая метка'
+          }, {
+              // Опции.
+              // Необходимо указать данный тип макета.
+              iconLayout: 'default#image',
+              // Своё изображение иконки метки.
+              iconImageHref: 'images/myIcon.gif',
+              // Размеры метки.
+              iconImageSize: [30, 42],
+              // Смещение левого верхнего угла иконки относительно
+              // её "ножки" (точки привязки).
+              iconImageOffset: [-5, -38]
+          }),
+
+          myPlacemarkWithContent = new ymaps.Placemark([55.661574, 37.573856], {
+              hintContent: 'Собственный значок метки с контентом',
+              balloonContent: 'А эта — новогодняя',
+              iconContent: '12'
+          }, {
+              // Опции.
+              // Необходимо указать данный тип макета.
+              iconLayout: 'default#imageWithContent',
+              // Своё изображение иконки метки.
+              iconImageHref: 'images/ball.png',
+              // Размеры метки.
+              iconImageSize: [48, 48],
+              // Смещение левого верхнего угла иконки относительно
+              // её "ножки" (точки привязки).
+              iconImageOffset: [-24, -24],
+              // Смещение слоя с содержимым относительно слоя с картинкой.
+              iconContentOffset: [15, 15],
+              // Макет содержимого.
+              iconContentLayout: MyIconContentLayout
+          });
+              myMap.geoObjects
+                  .add(myPlacemark)
+                  .add(myPlacemarkWithContent);
+          });
+</script>
   </body>
 </html>

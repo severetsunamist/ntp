@@ -233,6 +233,6 @@ class CompanyForm(forms.ModelForm):
             'client': forms.CheckboxInput(attrs={'class': 'btn-check', 'id': 'check_client', 'autocomplete': 'off', 'checked': False}),
             'agent': forms.CheckboxInput(attrs={'class': 'btn-check', 'id': 'check_agent', 'autocomplete': 'off', 'checked': False}),
             'logist': forms.CheckboxInput(attrs={'class': 'btn-check', 'id': 'check_logist', 'autocomplete': 'off', 'checked': False}),
-            'logo': forms.FileInput(attrs={'style': 'display: none;','class': 'form-control'}),
+            'logo': forms.FileInput(attrs={'style': 'display: none;', 'class': 'form-control'}),
             'industry': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Сфера деятельности'}),
         }

@@ -4,9 +4,9 @@
 {% block content %}
 <div class="container">
             {% for i in prop %}
-            <div class="card card-body" style="margin:5px;">
+            <div class="card card-body">
                 <div class="row">
-                    <img class="col-5 rounded" src="static/images/dbmediaroot/lp_example.jpg">
+                    <img class="col-4 img" src="static/images/lp_example.jpg">
                     <div class="col-4">
                         <h5 class="card-title text-center" style="margin-top:5px;">{{ i.property_type }} {{ i.name }}</h5>
                         <h6 class="card-text">{% if i.highway and i.region %}
@@ -22,10 +22,7 @@
                                 <td><b>Введен в эксплуатацию:</b> {{ i.built_date }}</td>
                             </tr>
                             <tr>
-                                <td><b>GBA:</b> {{ i.gba }} кв. м</td>
-                            </tr>
-                            <tr>
-                                <td><b>GLA:</b> {{ i.gla }} кв. м</td>
+                                <td><b>Площадь:</b> {{ i.gla }} кв. м</td>
                             </tr>
                             <tr>
                                 <td><b>Собственник:</b> -Unknown-</td>
@@ -35,14 +32,22 @@
                             </tr>
                         </table>
 
-
-
-                </div>
-                    <div class="col-3 d-grid gap-2">
-                        <button class="btn btn-warning">Карта</button>
-                        <button class="btn btn-warning">Подробно</button>
-                        <button class="btn btn-warning">Редактировать</button>
+                        <div class="row">
+                            <div class="col btn-group">
+                                <div class="col btn btn-primary"><b>Вакансия</b></div>
+                                <div class="col btn btn-warning"><b>Изменить</b></div>
+                                <div class="col btn btn-danger"><b>Удалить</b></div>
+                            </div>
+                            <div class="col btn btn-success">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                                </svg>
+                                <b>Блок</b>
+                            </div>
+                        </div>
                     </div>
+                    <img class="col rounded" src="static/images/lp_example.jpg">
                 </div>
             </div>
 
