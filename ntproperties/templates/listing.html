@@ -1,0 +1,52 @@
+{% extends "index.html" %}
+{% block create %}
+{% load static %}
+
+
+<div class="container">
+    <div class="card">
+    <div class="card-body">
+        <form method="GET" action="">
+            <div class="container">
+                <div class="row my-2">
+
+                    <label class="col-1">ID</label>
+                    <div class="col-3">{{ my_filter.id }}</div>
+                    <label class="col-2">Площадь, м&#178;</label>
+                    <div class="col">{{ my_filter.whs_area }}</div>
+                </div>
+                <div class="row my-2">
+                    <label class="col-1">Аренда</label>
+                    <div class="col-3">{{ my_filter.lease_offered }}</div>
+                    <label class="col-2">Ставки, руб./м&#178;/год</label>
+                    <div class="col">{{ my_filter.lease_whs_price }}</div>
+                </div>
+                <div class="row my-2">
+                    <label class="col-1">Продажа</label>
+                    <div class="col-3">{{ my_filter.sale_offered }}</div>
+                    <label class="col-2">Цена, руб.</label>
+                    <div class="col">{{ my_filter.sale_total_price }}</div>
+                </div>
+                <div class="row my-2">
+                    <div class="col-6 col-6-offset"></div>
+                    <div class="col-1">ID</div>
+                    <div class="col">{{ my_filter.id }}</div>
+                    <input type="submit" class="col btn btn-primary" value="Поиск">
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+    </div>
+
+    <div class="row row-cols-1" id="search-results-div">
+    {% include 'search_results.html' %}
+    </div>
+    {% include 'search_paginator.html' %}
+</div>
+
+<script type="text/javascript" src="{% static 'js/htmx.min.js' %}"></script>
+{% endblock %}
+
+

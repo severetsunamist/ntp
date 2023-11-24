@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru" class="py-0">
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <title>NT Preoperties CRM</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+        <link rel="stylesheet" type="text/css" href="{% static 'prop_view_map/prop_view_map.css' %}"/>
+        <script type="module" src="{% static 'prop_view_map/prop_view_map.js' %}"></script>
+
+        {% block head %}
+
+        {% endblock %}
+
+
+    </head>
+    <body>
+    {{ form.media }}
+        <div class="wrapper">
+            <div class="content">
+                {% if not view.is_popup %}
+                    {% include "header.html" %}
+                {% endif %}
+                {% if messages %}
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+                    {% for message in messages %}
+                            <div class="alert alert-danger alert-dismissible fade show" style="margin:10px;text-align:center;" role="alert">
+                              <strong>{{ message }}</strong>
+                              <button type="button" class="close btn" style="margin-top:8px;border:0px;text-align:center;" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true"><h4>&times;</h4></span></button>
+                            </div>
+                        {% endfor %}
+                        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+                {% endif %}
+                <div class="container my-3">
+
+                    {% block create %}
+                    {% endblock %}
+
+                    {% block scripts %}
+                    {% endblock %}
+
+                </div>
+            </div>
+            <div class="footer">
+                {% include "footer.html" %}
+            </div>
+        </div>
+    </body>
+</html>
