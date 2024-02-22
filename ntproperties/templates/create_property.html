@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+{% block create %}
+{% load crispy_forms_tags %}
+
+
+
+    <div class="row">
+        <div class="col-lg-6 col-sm mx-auto">
+            <h3>Новый объект</h3>
+            <form method="POST" action="" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form|crispy }}
+
+                <label for="upload_files" class="form-label">Выберите фото и ген. план*</label>
+                <input id="upload_files" type="file" name="photo" multiple class="form-control col-sm col-lg-6">
+                <input type="submit" class="btn btn-primary mt-3 fullwidth" value="Создать объект">
+            </form>
+        </div>
+    </div>
+    {% block scripts %}
+        <script>
+            $("#id_contact").select2();
+            $("#id_owner").select2();
+        </script>
+    {% endblock %}
+
+{% endblock %}

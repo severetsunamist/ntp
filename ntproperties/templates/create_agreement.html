@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+{% block create %}
+{% load crispy_forms_tags %}
+
+<div class="row">
+        <div class="col-lg-6 col-sm mx-auto">
+            <h3>Новый договор</h3>
+            <form method="POST" action="" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <input type="submit" class="btn btn-primary" value="Создать договор">
+            </form>
+        </div>
+</div>
+    {% block scripts %}
+        <script>
+            $("#id_party_1").select2();
+            $("#id_party_2").select2();
+        </script>
+    {% endblock %}
+
+{% endblock %}

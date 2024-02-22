@@ -1,0 +1,129 @@
+{% extends "index.html" %}
+{% block create %}
+{% load static %}
+
+    <div class="row">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#inprogress-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">
+                Запросы
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#news-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
+                Новости
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#analytics-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">
+                Аналитика
+            </button>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="inprogress-tab-pane" role="tabpanel" aria-labelledby="inprogress-tab" tabindex="0">
+              <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <td class="col-lg-2 col-sm-2">Брокер</td>
+                            <td class="col-lg-2 col-sm-2">Компания</td>
+                            <td class="col-lg-2 col-sm-2">Тип</td>
+                            <td class="col-lg-2 col-sm-2">Площади</td>
+                            <td class="col"></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for request in requests %}
+                        <tr class="table-success">
+                            <td class="col-lg-2 col-sm-2">{% if request.broker.first_name and request.broker.last_name %}{{ request.broker.first_name }} {{ request.broker.last_name }}{% endif %}</td>
+                            <td class="col-lg-2 col-sm-2">{{ request.client.employer }}<br>{{ request.client.name }}</td>
+                            <td class="col-lg-2 col-sm-2">{% if request.lease %}Аренда<br>{% endif %}{% if request.buy %}Покупка<br>{% endif %}{% if request.bts %}BTS{% endif %}</td>
+                            <td class="col-lg-2 col-sm-2">{% if request.whs_area %}{{ request.whs_area }} м&#178;<br>{% endif %}{% if request.whs_area %}{{ request.office_area }} м&#178;<br>{% endif %}{% if request.mez_area %}{{ request.mez_area }} м&#178;<br>{% endif %}</td>
+                            <td class="col">
+                                <div class="justify-content-center">
+                                    <div class="btn btn-info col-lg-4 col-sm">
+                                        <svg width="24" height="24">
+                                            <use xlink:href="{% static 'svg/icons.svg' %}#see_comments"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="btn btn-success col">
+                                        <svg width="24" height="24">
+                                            <use xlink:href="{% static 'svg/icons.svg' %}#add_comment"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="btn btn-warning col">
+                                        <svg width="24" height="24">
+                                            <use xlink:href="{% static 'svg/icons.svg' %}#edit"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="btn btn-danger col">
+                                        <svg width="24" height="24">
+                                            <use xlink:href="{% static 'svg/icons.svg' %}#delete"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+              </div>
+          </div>
+          <div class="tab-pane fade" id="news-tab-pane" role="tabpanel" aria-labelledby="news-tab" tabindex="1">
+              <div class="table-responsive">
+                <table class="table table-striped">
+                    <tbody>
+                        {% for activity in activities %}
+                        <tr class="table">
+                            <td class="col-lg-1 col-sm-1">
+                                {% if activity.activity_type == "Новый" %}
+                                    <svg width="24" height="24">
+                                        <use xlink:href="{% static 'svg/icons.svg' %}#activity_add"></use>
+                                    </svg>
+                                {% elif activity.activity_type == "Комментарий" %}
+                                    <svg width="24" height="24">
+                                        <use xlink:href="{% static 'svg/icons.svg' %}#activity_comment_on"></use>
+                                    </svg>
+                                {% elif activity.activity_type == "Удалён" %}
+                                    <svg width="24" height="24">
+                                        <use xlink:href="{% static 'svg/icons.svg' %}#activity_cancel"></use>
+                                    </svg>
+                                {% endif %}
+                                {% if activity.activity_subject == "Объект" %}
+                                    <svg width="24" height="24">
+                                        <use xlink:href="{% static 'svg/icons.svg' %}#activity_property"></use>
+                                    </svg>
+                                {% elif activity.activity_subject == "Запрос" %}
+                                    <svg width="24" height="24">
+                                        <use xlink:href="{% static 'svg/icons.svg' %}#activity_request"></use>
+                                    </svg>
+                                {% elif activity.activity_subject == "Контакт" %}
+                                    <svg width="24" height="24">
+                                        <use xlink:href="{% static 'svg/icons.svg' %}#activity_contact"></use>
+                                    </svg>
+                                {% elif activity.activity_subject == "Сделка" %}
+                                    <svg width="24" height="24">
+                                        <use xlink:href="{% static 'svg/icons.svg' %}#activity_deal"></use>
+                                    </svg>
+                                {% endif %}
+                                <br>
+                                {{ activity.date|date:'d.m.Y H:i' }}
+
+                            </td>
+                            <td class="col-lg-2 col-sm-2">{% if activity.broker.first_name and activity.broker.last_name %}{{ activity.broker.first_name }} {{ activity.broker.last_name }}{% endif %}</td>
+                            <td class="col-lg-2 col-sm-2">{{ activity.contact.employer }}<br>{{ activity.contact.name }}</td>
+                            <td class="col">{{ activity.comment }}</td>
+
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+              </div>
+          </div>
+          <div class="tab-pane fade" id="analytics-tab-pane" role="tabpanel" aria-labelledby="analytics-tab" tabindex="2">
+            [в разработке]
+          </div>
+        </div>
+    </div>
+{% endblock %}

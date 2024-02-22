@@ -1,0 +1,44 @@
+{% if not view.is_popup %}
+<nav class="navbar navbar-expand-lg shadow-sm" style="padding-top:20px;padding-bottom:20px;background-color:#ff6d12;">
+
+  <div class="container">
+    <button class="navbar-dark navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-dark navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <br>
+      <ul class="justify-content-center navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link text-white" aria-current="page" href="{% url 'dashboard' %}"><b>Кабинет</b></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" aria-current="page" href="{% url 'listing' %}"><b>Объекты</b></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" aria-current="page" href="{% url 'map' %}"><b>Карта</b></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <b>Создать</b>
+          </a>
+          <ul class="dropdown-menu" style="background-color: #ffd3b8;">
+            <li><a class="dropdown-item" href="{% url 'create_property' %}">Объект</a></li>
+            <li><a class="dropdown-item" href="{% url 'create_block' %}">Блок</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="{% url 'create_company' %}">Компанию</a></li>
+            <li><a class="dropdown-item" href="{% url 'create_companycard' %}">Юр. лицо</a></li>
+            <li><a class="dropdown-item" href="{% url 'create_agreement' %}">Договор</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="{% url 'create_contact' %}">Контакт</a></li>
+            <li><a class="dropdown-item" href="{% url 'create_request' %}">Запрос</a></li>
+            <li><a class="dropdown-item" href="{% url 'create_deal' %}">Сделку</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+      {% load static %}
+    <a class="navbar-brand text-white" href=""><img src="{% static 'logo.png' %}"  alt="NT Properties CRM" width="192px" height="73px" ></a>
+  </div>
+</nav>
+<br>
+{% endif %}
